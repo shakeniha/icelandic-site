@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Attractions Section</title>
+    <link href="styles/common_style.css" rel="stylesheet" />
+    <link href="styles/top-style.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- Toggle Button -->
+        <button class="toggle-button" id="toggle-panel">☰</button>
+        <div class="container-fluid justify-content-center">
+            <a class="navbar-brand" href="index.html">
+                <img src="iceland_logo.png" class="d-inline-block align-top" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navcol-1" class="collapse navbar-collapse flex-grow-0">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="top.html">Top Attractions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="culture.html">Culture</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Side Panel -->
+    <div class="side-panel" id="sidePanel">
+        <h4 class="text-center mt-3">User Panel</h4>
+        <div class="d-flex flex-column align-items-center mt-4">
+            <button id="toggle-mode" class="btn btn-outline-secondary mb-3">Toggle Dark Mode</button>
+            <span id="welcome-message" class="text-secondary fw-bold mb-3"></span> <!-- Welcome message -->
+            <button id="login" class="btn btn-outline-primary mb-2">Login</button>
+            <button id="register" class="btn btn-outline-success mb-2">Sign Up</button>
+            <button id="logout" class="btn btn-outline-danger mb-2" style="display: none;">Logout</button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <input type="text" id="login-username" placeholder="Enter Username" class="form-control">
+                        <div class="error-message" style="color: red;"></div> <!-- Ошибка для Username -->
+                    </div>
+                    <div class="mt-3">
+                        <input type="password" id="login-password" placeholder="Enter Password" class="form-control">
+                        <div class="error-message" style="color: red;"></div> <!-- Ошибка для Password -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="confirm-login">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Sign Up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="register-form">
+                        <div>
+                            <input type="text" name="username" id="register-username" placeholder="Enter Username" class="form-control">
+                            <div class="error-message" style="color: red;"></div>
+                        </div>
+                        <div class="mt-3">
+                            <input type="email" name="email" id="register-email" placeholder="Enter Email" class="form-control">
+                            <div class="error-message" style="color: red;"></div>
+                        </div>
+                        <div class="mt-3">
+                            <input type="password" name="password" id="register-password" placeholder="Enter Password" class="form-control">
+                            <div class="error-message" style="color: red;"></div>
+                        </div>
+                        <div class="mt-3">
+                            <input type="text" name="phone" id="register-phone" placeholder="Enter Phone (optional)" class="form-control">
+                            <div class="error-message" style="color: red;"></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="confirm-register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>     
+
+    <!-- Main Content -->
+    <main>
+        <section class="mb-5">
+            <h2 class="text-center">Explore Iceland's Top Destinations</h2>
+            <p class="text-center">Iceland offers a wide range of natural wonders and breathtaking landscapes, making it a top destination for nature lovers. The country is known for its stunning waterfalls, such as Gullfoss and Seljalandsfoss, which are perfect for photography and exploration. Geothermal activity is prevalent, with erupting geysers like Strokkur creating impressive natural displays. Iceland's glaciers, such as Vatnajökull, offer opportunities for ice hiking and exploring ice caves. The volcanic craters and lava fields further highlight the island's unique geological features. Don’t miss the Blue Lagoon, a famous geothermal spa known for its soothing waters and stunning surroundings. With its rich history, stunning nature, and vibrant culture, Iceland promises a truly unforgettable experience.</p>
+            <blockquote class="blockquote text-center">"Iceland is not a destination; it is an adventure." - Sölmundur Ívarsson</blockquote>
+            
+            <!-- Кнопка и скрытый текст для функции "Read More" -->
+            <button id="read-more" class="btn btn-info mt-3">Read More</button>
+            <p id="more-text" style="display: none;">Iceland is filled with attractions that include unique landscapes, natural phenomena, and historical sites that are a must-see for any traveler.</p>
+        </section>
+
+        <section>
+            <!-- Filter Section -->
+            <div class="container mt-5">
+                <h3 class="text-center">Select a Category</h3>
+                <div class="d-flex justify-content-center">
+                    <select id="category-filter" class="form-select w-50">
+                        <option value="all">...</option>
+                        <option value="restaurants">Restaurants</option>
+                        <option value="attractions">Attractions</option>
+                        <option value="culture">Culture</option>
+                        <option value="nature">Nature</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="container mt-5">
+                <!-- Restaurants Section (hidden by default) -->
+                <div id="restaurant-section" class="row d-none">
+                    <h3 class="text-center mb-4">Top Restaurants</h3>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/restaurant1.jpg" class="card-img-top" alt="Restaurant 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Eldhús Ríki</h5>
+                                <p class="card-text">A fine dining experience offering exquisite Icelandic dishes, where traditional flavors meet a refined culinary approach. Experience the rich taste of freshly sourced seafood, lamb, and locally grown vegetables, prepared with a masterful touch. The ambiance is designed to reflect Iceland's natural beauty, providing an unforgettable dining experience.</p>
+                                <div class="rating-area">
+                                    <input type="radio" id="star-5" name="rating" value="5">
+                                    <label for="star-5" title="Оценка «5»"></label>
+                                    
+                                    <input type="radio" id="star-4" name="rating" value="4">
+                                    <label for="star-4" title="Оценка «4»"></label>
+                                    
+                                    <input type="radio" id="star-3" name="rating" value="3">
+                                    <label for="star-3" title="Оценка «3»"></label>
+                                    
+                                    <input type="radio" id="star-2" name="rating" value="2">
+                                    <label for="star-2" title="Оценка «2»"></label>
+                                    
+                                    <input type="radio" id="star-1" name="rating" value="1">
+                                    <label for="star-1" title="Оценка «1»"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/restaurant2.jpg" class="card-img-top" alt="Restaurant 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Höfði Borg</h5>
+                                <p class="card-text">Modern Scandinavian cuisine served in a cozy, intimate setting. The menu blends the finest local ingredients with contemporary techniques, offering a creative twist on classic Nordic dishes. Enjoy a warm, welcoming atmosphere while savoring flavors that capture the essence of Iceland's culinary traditions.</p>
+                                <div class="rating-area">
+                                    <input type="radio" id="star-6" name="rating" value="5">
+                                    <label for="star-5" title="Оценка «5»"></label>
+                                    
+                                    <input type="radio" id="star-7" name="rating" value="4">
+                                    <label for="star-4" title="Оценка «4»"></label>
+                                    
+                                    <input type="radio" id="star-8" name="rating" value="3">
+                                    <label for="star-3" title="Оценка «3»"></label>
+                                    
+                                    <input type="radio" id="star-9" name="rating" value="2">
+                                    <label for="star-2" title="Оценка «2»"></label>
+                                    
+                                    <input type="radio" id="star-10" name="rating" value="1">
+                                    <label for="star-1" title="Оценка «1»"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/restaurant3.jpg" class="card-img-top" alt="Restaurant 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Snorri’s Hús</h5>
+                                <p class="card-text">Traditional Icelandic flavors served with a contemporary twist, where age-old recipes are reimagined for the modern palate. Specializing in hearty stews, smoked fish, and homemade rye bread, the restaurant invites you to taste Iceland’s culinary heritage with innovative touches. The rustic interior adds to the authenticity of the experience.</p>
+                                <div class="rating-area">
+                                    <input type="radio" id="star-11" name="rating" value="5">
+                                    <label for="star-5" title="Оценка «5»"></label>
+                                    
+                                    <input type="radio" id="star-12" name="rating" value="4">
+                                    <label for="star-4" title="Оценка «4»"></label>
+                                    
+                                    <input type="radio" id="star-13" name="rating" value="3">
+                                    <label for="star-3" title="Оценка «3»"></label>
+                                    
+                                    <input type="radio" id="star-14" name="rating" value="2">
+                                    <label for="star-2" title="Оценка «2»"></label>
+                                    
+                                    <input type="radio" id="star-15" name="rating" value="1">
+                                    <label for="star-1" title="Оценка «1»"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Attractions Section (hidden by default) -->
+                <div id="attraction-section" class="row d-none">
+                    <h3 class="text-center mb-4">Top Attractions</h3>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/attraction1.jpg" class="card-img-top" alt="Attraction 1">
+                            <div class="card-body">
+                                <h5 class="card-title">The Blue Lagoon</h5>
+                                <p class="card-text">A geothermal spa renowned for its striking blue waters, nestled in a lava field in southwestern Iceland. The mineral-rich waters are believed to have healing properties, offering visitors a relaxing and rejuvenating experience. Surrounded by breathtaking volcanic landscapes, it is one of Iceland's most famous natural wonders.</p>
+                                <div class="rating-area">
+                                    <input type="radio" id="star-16" name="rating" value="5">
+                                    <label for="star-5" title="Оценка «5»"></label>
+                                    
+                                    <input type="radio" id="star-17" name="rating" value="4">
+                                    <label for="star-4" title="Оценка «4»"></label>
+                                    
+                                    <input type="radio" id="star-18" name="rating" value="3">
+                                    <label for="star-3" title="Оценка «3»"></label>
+                                    
+                                    <input type="radio" id="star-19" name="rating" value="2">
+                                    <label for="star-2" title="Оценка «2»"></label>
+                                    
+                                    <input type="radio" id="star-20" name="rating" value="1">
+                                    <label for="star-1" title="Оценка «1»"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/attraction2.jpg" class="card-img-top" alt="Attraction 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Gullfoss Waterfall</h5>
+                                <p class="card-text">A magnificent, two-tiered waterfall located along the Golden Circle tourist route in southwestern Iceland. Its powerful flow cascades into a deep canyon, creating a stunning spectacle of water and mist. Gullfoss is one of Iceland's most iconic and photogenic waterfalls, drawing visitors from all over the world.</p>
+                                <div class="rating-area">
+                                    <input type="radio" id="star-21" name="rating" value="5">
+                                    <label for="star-5" title="Оценка «5»"></label>
+                                    
+                                    <input type="radio" id="star-22" name="rating" value="4">
+                                    <label for="star-4" title="Оценка «4»"></label>
+                                    
+                                    <input type="radio" id="star-23" name="rating" value="3">
+                                    <label for="star-3" title="Оценка «3»"></label>
+                                    
+                                    <input type="radio" id="star-24" name="rating" value="2">
+                                    <label for="star-2" title="Оценка «2»"></label>
+                                    
+                                    <input type="radio" id="star-25" name="rating" value="1">
+                                    <label for="star-1" title="Оценка «1»"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/attraction3.jpg" class="card-img-top" alt="Attraction 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Thingvellir National Park</h5>
+                                <p class="card-text">A historic national park located in a rift valley, known for its stunning geological formations and rich cultural significance. It is the site of Iceland's first parliament, established in 930 AD, and a UNESCO World Heritage Site. The park also offers breathtaking views of the Almannagjá gorge and is home to the Thingvallavatn Lake, the largest natural lake in Iceland.</p>
+                                <div class="rating-area">
+                                    <input type="radio" id="star-26" name="rating" value="5">
+                                    <label for="star-5" title="Оценка «5»"></label>
+                                    
+                                    <input type="radio" id="star-27" name="rating" value="4">
+                                    <label for="star-4" title="Оценка «4»"></label>
+                                    
+                                    <input type="radio" id="star-28" name="rating" value="3">
+                                    <label for="star-3" title="Оценка «3»"></label>
+                                    
+                                    <input type="radio" id="star-29" name="rating" value="2">
+                                    <label for="star-2" title="Оценка «2»"></label>
+                                    
+                                    <input type="radio" id="star-30" name="rating" value="1">
+                                    <label for="star-1" title="Оценка «1»"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Culture Section (hidden by default) -->
+                <div id="culture-section" class="row d-none">
+                    <h3 class="text-center mb-4">Top Culture Sites</h3>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/culture1.jpg" class="card-img-top" alt="Culture Site 1">
+                            <div class="card-body">
+                                <h5 class="card-title">National Museum of Iceland</h5>
+                                <p class="card-text">Explore the rich and fascinating history of Iceland, from the Viking age to modern times. The museum features a diverse collection of artifacts, including ancient tools, textiles, and relics from Iceland's early settlers. Visitors can learn about the nation's cultural heritage, including its historical struggles and achievements.</p>
+                                <div class="rating-area">
+                                    <input type="radio" id="star-31" name="rating" value="5">
+                                    <label for="star-5" title="Оценка «5»"></label>
+                                    
+                                    <input type="radio" id="star-32" name="rating" value="4">
+                                    <label for="star-4" title="Оценка «4»"></label>
+                                    
+                                    <input type="radio" id="star-33" name="rating" value="3">
+                                    <label for="star-3" title="Оценка «3»"></label>
+                                    
+                                    <input type="radio" id="star-34" name="rating" value="2">
+                                    <label for="star-2" title="Оценка «2»"></label>
+                                    
+                                    <input type="radio" id="star-35" name="rating" value="1">
+                                    <label for="star-1" title="Оценка «1»"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/culture2.jpg" class="card-img-top" alt="Culture Site 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Icelandic Phallological Museum</h5>
+                                <p class="card-text">A one-of-a-kind museum dedicated to the study of the phallus, featuring an extensive collection of specimens from various animal species. The museum offers a quirky and educational experience, providing insights into the cultural, scientific, and historical significance of the phallus in different societies. It is a unique and often amusing stop for those curious about this intriguing subject.</p>
+                                <div class="rating-area">
+                                    <input type="radio" id="star-36" name="rating" value="5">
+                                    <label for="star-5" title="Оценка «5»"></label>
+                                    
+                                    <input type="radio" id="star-37" name="rating" value="4">
+                                    <label for="star-4" title="Оценка «4»"></label>
+                                    
+                                    <input type="radio" id="star-38" name="rating" value="3">
+                                    <label for="star-3" title="Оценка «3»"></label>
+                                    
+                                    <input type="radio" id="star-39" name="rating" value="2">
+                                    <label for="star-2" title="Оценка «2»"></label>
+                                    
+                                    <input type="radio" id="star-40" name="rating" value="1">
+                                    <label for="star-1" title="Оценка «1»"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/culture3.jpg" class="card-img-top" alt="Culture Site 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Reykjavik Art Museum</h5>
+                                <p class="card-text">A contemporary art museum that showcases a wide range of Icelandic and international artists. With a focus on modern artistic expressions, the museum features exhibitions across various mediums, including painting, sculpture, and digital art. The museum plays an important role in Reykjavik's vibrant arts scene and offers visitors a chance to explore both innovative and thought-provoking works.</p>
+                                <div class="rating-area">
+                                    <input type="radio" id="star-41" name="rating" value="5">
+                                    <label for="star-5" title="Оценка «5»"></label>
+                                    
+                                    <input type="radio" id="star-42" name="rating" value="4">
+                                    <label for="star-4" title="Оценка «4»"></label>
+                                    
+                                    <input type="radio" id="star-43" name="rating" value="3">
+                                    <label for="star-3" title="Оценка «3»"></label>
+                                    
+                                    <input type="radio" id="star-44" name="rating" value="2">
+                                    <label for="star-2" title="Оценка «2»"></label>
+                                    
+                                    <input type="radio" id="star-45" name="rating" value="1">
+                                    <label for="star-1" title="Оценка «1»"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nature Section (hidden by default) -->
+                <div id="nature-section" class="row d-none">
+                    <h3 class="text-center mb-4">Top Nature Spots</h3>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/nature1.jpg" class="card-img-top" alt="Nature Spot 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Jökulsárlón Glacier Lagoon</h5>
+                                <p class="card-text">A stunning glacier lagoon filled with icebergs that have broken off from the Vatnajökull glacier. The lagoon offers a serene and breathtaking view, with towering ice formations floating serenely on the water. Visitors can also take boat tours to get up close to the icebergs and enjoy the surrounding stunning landscapes.</p>
+                                <div class="rating-area">
+                                    <input type="radio" id="star-46" name="rating" value="5">
+                                    <label for="star-5" title="Оценка «5»"></label>
+                                    
+                                    <input type="radio" id="star-47" name="rating" value="4">
+                                    <label for="star-4" title="Оценка «4»"></label>
+                                    
+                                    <input type="radio" id="star-48" name="rating" value="3">
+                                    <label for="star-3" title="Оценка «3»"></label>
+                                    
+                                    <input type="radio" id="star-49" name="rating" value="2">
+                                    <label for="star-2" title="Оценка «2»"></label>
+                                    
+                                    <input type="radio" id="star-50" name="rating" value="1">
+                                    <label for="star-1" title="Оценка «1»"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/nature2.jpg" class="card-img-top" alt="Nature Spot 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Vatnajökull National Park</h5>
+                                <p class="card-text">A vast national park known for its majestic glaciers, powerful waterfalls, and scenic hiking trails. The park is home to Vatnajökull, Europe's largest glacier, and offers countless opportunities for adventure, from ice cave explorations to glacier hikes. With its diverse landscapes, the park is a paradise for nature lovers and outdoor enthusiasts.</p>
+                                <div class="rating-area">
+                                    <input type="radio" id="star-51" name="rating" value="5">
+                                    <label for="star-5" title="Оценка «5»"></label>
+                                    
+                                    <input type="radio" id="star-52" name="rating" value="4">
+                                    <label for="star-4" title="Оценка «4»"></label>
+                                    
+                                    <input type="radio" id="star-53" name="rating" value="3">
+                                    <label for="star-3" title="Оценка «3»"></label>
+                                    
+                                    <input type="radio" id="star-54" name="rating" value="2">
+                                    <label for="star-2" title="Оценка «2»"></label>
+                                    
+                                    <input type="radio" id="star-55" name="rating" value="1">
+                                    <label for="star-1" title="Оценка «1»"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/nature3.jpg" class="card-img-top" alt="Nature Spot 3">
+                            <div class="card-body">
+                                <h5 class="card-title">Thingvellir National Park</h5>
+                                <p class="card-text">A UNESCO World Heritage site where you can witness the visible division between two tectonic plates—the North American and Eurasian plates. The park is not only a geological marvel but also a historically significant location, as it was the site of Iceland's first parliament, Althing. Visitors can explore the park’s beautiful rift valley and enjoy its stunning views and hiking trails.</p>
+                                <div class="rating-area">
+                                    <input type="radio" id="star-56" name="rating" value="5">
+                                    <label for="star-5" title="Оценка «5»"></label>
+                                    
+                                    <input type="radio" id="star-57" name="rating" value="4">
+                                    <label for="star-4" title="Оценка «4»"></label>
+                                    
+                                    <input type="radio" id="star-58" name="rating" value="3">
+                                    <label for="star-3" title="Оценка «3»"></label>
+                                    
+                                    <input type="radio" id="star-59" name="rating" value="2">
+                                    <label for="star-2" title="Оценка «2»"></label>
+                                    
+                                    <input type="radio" id="star-60" name="rating" value="1">
+                                    <label for="star-1" title="Оценка «1»"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <section class="mb-5">
+                <h3>Activities to Enjoy</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Whale Watching</li>
+                    <li class="list-group-item">Hiking on Glaciers</li>
+                    <li class="list-group-item">Exploring Volcanic Caves</li>
+                    <li class="list-group-item">Chasing the Northern Lights</li>
+                    <li class="list-group-item">Relaxing in Geothermal Spas</li>
+                </ul>
+        </section>
+    </main>
+
+    <footer class="footer mt-5 text-center">
+        <p>&copy; Kuanysh Maral 2024, Icelandic Experience</p>
+    </footer>
+
+    <script src="scripts/common.js"></script>
+    <script src="scripts/top_script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

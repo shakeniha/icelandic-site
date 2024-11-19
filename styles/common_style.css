@@ -1,0 +1,383 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Light Mode */
+body.light-mode {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #333;
+    color: #f9f9f9;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+.navbar .navbar-brand:hover {
+    color: #ddd;
+}
+
+/* Buttons */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Светлая тема */
+#submit_button {
+    color: #343a40;
+    border-color: #343a40;
+    justify-content: center;
+}
+#submit_button:hover {
+    color: #fff;
+    background-color: #575757;
+    border-color: #343a40;
+}
+
+/* Темная тема */
+.dark-mode #submit_button {
+    color: #fff;
+    border-color: #fff;
+}
+.dark-mode #submit_button:hover {
+    color: #343a40;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+/* Header section background */
+.header-section {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #f0f0f0; /* Light background for header section */
+    padding: 10px;
+    border-bottom-left-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+/* Dark mode styles for header section */
+.dark-mode .header-section {
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Centered Buttons: distribute space when welcome message is hidden */
+.centered-buttons {
+    flex: 1;
+    text-align: center;
+}
+
+/* Individual Button Styles */
+#toggle-mode, #logout, #login, #register {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 0.9em;
+}
+
+/* Welcome message styling */
+#welcome-message {
+    background-color: #e0e0e0; /* Background for welcome message */
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+/* Dark mode styles for welcome message */
+.dark-mode #welcome-message {
+    background-color: #555;
+    color: #f9f9f9;
+}
+
+/* Dark mode styles */
+.dark-mode #toggle-mode, 
+.dark-mode #logout, 
+.dark-mode #login, 
+.dark-mode #register {
+    background-color: #444;
+    color: #f9f9f9;
+}
+
+.dark-mode div {
+    color: #000000;
+}
+
+.dark-mode .container text-center {
+    color: #f9f9f9;
+}
+
+.dark-mode #weather-widget {
+    color: #f9f9f9;
+}
+
+.dark-mode #Weather-title{
+    color: #f9f9f9;
+}
+
+/* Hide one button based on login status */
+#login {
+    display: none; /* Default to hidden, shown when user is logged out */
+}
+
+#logout {
+    display: none; /* Default to hidden, shown when user is logged in */
+}
+
+/* Login Modal */
+.modal-content {
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.dark-mode .modal-content {
+    background-color: #444;
+    color: #f9f9f9;
+}
+
+.modal-header, .modal-footer {
+    border: none;
+}
+
+/* Input Fields */
+input[type="text"], input[type="email"], input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Alert Box */
+.alert {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+/* Filter Section */
+.filter-section {
+    margin: 20px 0;
+}
+
+.filter-section label {
+    font-weight: bold;
+}
+
+.filter-section select {
+    width: auto;
+    padding: 5px;
+}
+
+/* Error messages for form validation */
+.input-error {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* Modal Buttons (Login / Register) */
+.modal-footer button {
+    font-size: 1em;
+    padding: 8px 15px;
+}
+
+.modal-footer .btn-primary {
+    background-color: #007bff;
+}
+
+.modal-footer .btn-success {
+    background-color: #28a745;
+}
+
+.modal-footer .btn-close {
+    background-color: #ccc;
+}
+
+.modal-footer .btn-primary:hover, 
+.modal-footer .btn-success:hover, 
+.modal-footer .btn-close:hover {
+    opacity: 0.9;
+}
+
+/* Footer */
+.footer {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+    height: 40px;
+}
+
+/* Side Panel */
+.side-panel {
+    position: fixed;
+    top: 0;
+    right: -250px; /* По умолчанию скрыта, изменено на правую сторону */
+    width: 250px;
+    height: 100%;
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2); /* Изменено на тень с правой стороны */
+    padding: 20px;
+    transition: right 0.3s ease; /* Плавное появление справа */
+    z-index: 1001;
+}
+
+/* Dark mode for side panel */
+.dark-mode .side-panel {
+    background-color: #333;
+    color: #f9f9f9;
+}
+
+/* Side Panel Open State */
+.side-panel.open {
+    right: 0;
+}
+
+/* Fixed Toggle Button */
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 10px; /* Изменено на правую сторону */
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1002;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Dark mode for toggle button */
+.dark-mode .toggle-btn {
+    background-color: #444;
+}
+
+.dark-mode .toggle-btn:hover {
+    background-color: #555;
+}
+
+/* Buttons inside the side panel */
+.side-panel button {
+    display: block;
+    margin: 10px 0;
+    width: 100%;
+    text-align: left;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Эффект растущей тени */
+button:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* Эффект риппл при нажатии */
+button:active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: ripple 0.6s linear;
+    transform: translate(-50%, -50%);
+}
+
+/* Анимация риппл-эффекта */
+@keyframes ripple {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+p {
+    font-family: 'Georgia', serif; /* Шрифт, который передает атмосферу классики */
+    font-size: 1.2em; /* Увеличиваем размер шрифта для удобочитаемости */
+    color: #2E4053; /* Темно-синий цвет, ассоциирующийся с ледниками и ночным небом */
+    line-height: 1.6; /* Увеличенная высота строки для более приятного восприятия текста */
+    background-color: #F8F9FA; /* Светлый фон с оттенками белого */
+    padding: 15px; /* Немного отступа для лучшего оформления */
+    border-left: 5px solid #1D3557; /* Линия слева, напоминающая об Icelandic landscapes (горы, ледники) */
+    margin: 20px 0; /* Отступы сверху и снизу для гармоничного размещения */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень для визуальной отделенности от фона */
+}

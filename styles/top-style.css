@@ -1,0 +1,215 @@
+/* Section-screen Настройка Пропорции*/
+html, body {
+    height: 100%;
+    overflow: auto !important; /* Изменено на auto */
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+
+.container-pages {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; /* Обеспечивает плавную прокрутку */
+}
+
+.section-screen {
+    scroll-snap-align: start; /* Привязывает начало секции к экрану */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; /* Уменьшенный размер текста */
+    padding: 2rem; /* Добавлен внутренний отступ */
+    opacity: 0; /* Начальное скрытие */
+    transition: opacity 0.5s ease-out;
+}
+
+.section-screen.visible {
+    opacity: 1; /* Показ секции, когда она видна */
+}
+
+/* Стили для вложенных элементов, чтобы избежать растягивания */
+.section-screen > section {
+    width: 100%; /* Заполняет всю ширину родителя */
+    max-width: 1200px; /* Ограничить ширину для контента */
+    margin: 0 auto; /* Центрирование содержимого */
+    padding: 1rem; /* Внутренний отступ */
+    box-sizing: border-box; /* Учёт отступов при расчете размера */
+}
+
+/* Максимальные размеры для вложенных элементов */
+section.mb-5 {
+    height: auto; /* Избежать полного растягивания на 100% */
+    max-height: 80vh; /* Ограничить максимальную высоту */
+}
+
+/* Уменьшение размера текста и кнопок */
+.button {
+    max-width: 300px; /* Ограничение ширины кнопок */
+    font-size: 1rem; /* Размер текста в кнопках */
+}
+
+/* Переопределение стилей Bootstrap */
+.mb-5 {
+    margin-bottom: 1rem !important; /* Уменьшить нижний отступ */
+}
+
+
+/* Основной функционал */
+#theme-toggle {
+    margin-top: 10px;
+}
+
+/* Анимация кнопки */
+.bla {
+    display: flex;
+    justify-content: center;  /* Центрируем кнопку по горизонтали */
+    align-items: center;      /* Центрируем кнопку по вертикали */
+    height: 100vh;            /* Сделать контейнер по высоте экрана */
+    padding: 20px;            /* Добавить отступы вокруг контейнера */
+}
+
+#clickMeButton {
+    padding: 15px 30px;      /* Увеличиваем отступы для кнопки */
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px #999;
+    border-radius: 5px;
+    margin: 10px;             /* Добавляем отступы вокруг кнопки */
+    min-width: 150px;         /* Минимальная ширина кнопки */
+    min-height: 50px;         /* Минимальная высота кнопки */
+}
+
+#clickMeButton:active {
+    transform: scale(0.95); /* Сжатие кнопки при нажатии */
+    box-shadow: 0 2px #666;
+}
+
+#clickMeButton:hover {
+    background-color: #45a049; /* При наведении */
+}
+
+/* Анимация тряски */
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    75% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animate-shake {
+    animation: shake 0.6s ease;
+}
+
+.animate-jump {
+    animation: jump 0.6s ease;
+}
+
+/* Рейтинг со звездами */
+.rating-area {
+    overflow: hidden;
+    width: 265px;
+    margin: 0 auto;
+}
+
+.rating-area > input {
+    display: none; /* Скрываем радиокнопки */
+}
+
+.rating-area > label {
+    float: right;
+    width: 42px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 32px;
+    line-height: 32px;
+    color: lightgrey;
+    text-shadow: 1px 1px #bbb;
+}
+
+.rating-area > label:before {
+    content: '★'; /* Символ звезды */
+}
+
+.rating-area > input:checked ~ label {
+    color: gold; /* Золотой цвет для выбранных звезд */
+    text-shadow: 1px 1px #c60;
+}
+
+.rating-area > label:hover,
+.rating-area > label:hover ~ label {
+    color: gold; /* Подсветка звезд при наведении */
+}
+
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+    color: gold;
+    text-shadow: 1px 1px goldenrod;
+}
+
+.rating-area > label:active {
+    position: relative;
+}
+
+/* Добавление, удаление, перезапуск и перемещение элементов списка */
+#item-list {
+    list-style-type: none;
+    padding: 0;
+    width: 200px;
+}
+#item-list li {
+    padding: 10px;
+    margin: 5px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    cursor: move;
+    border-radius: 4px;
+}
+/* Подсветка при перетаскивании */
+#item-list li.drag-over {
+    background-color: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+    .section-screen {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+}
